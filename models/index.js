@@ -12,7 +12,7 @@ Product.belongsTo(Category, {
 // Categories have many Products        (ok)
 Category.hasMany(Product, {
   foreignKey: 'category_id'
-})
+});
 
 // Products belongToMany User (through Cart)
 Product.belongsToMany(User, {
