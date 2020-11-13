@@ -21,7 +21,7 @@ Product.belongsToMany(User, {
   otherKey: 'user_id'
 });
 
-// Tags belongToMany Products (through ProductTag)
+// User hasMany Products (through Cart)
 User.hasMany(Product, {
   through: Cart,
   foreignKey: 'user_id'
