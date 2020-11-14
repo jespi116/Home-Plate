@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User } = require('../../models');
 
 router.get('/', (req, res) => {
@@ -7,8 +8,8 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'username',
-        'email',
-        'password'
+        'password',
+        'email'
       ],
       incluide: [
         [sequelize.literal('(SELECT COUNT(*) FROM cart WHERE user.id = cart.user_id)')]
@@ -124,7 +125,7 @@ router.put('/:id', (req, res) => {
       }
     })
       .then(dbUserData => {
-        if (!dbUserData[0]) {
+        if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id' });
           return;
         }

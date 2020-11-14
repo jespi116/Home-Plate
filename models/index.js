@@ -22,7 +22,7 @@ Product.belongsToMany(User, {
 });
 
 // Tags belongToMany Products (through ProductTag)
-User.hasMany(Product, {
+User.belongsToMany(Product, {       //Corrected the associations between User and products
   through: Cart,
   foreignKey: 'user_id'
 });

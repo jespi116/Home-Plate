@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection')
+const sequelize = require('../../config/connection');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['category_name']
+        attributes: ['id', 'category_name']   //changed the attribute, added id, I think we will use it in the future
       }
     ]
   })
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['category_name']
+        attributes: ['id','category_name']
       }
     ]
   })
@@ -86,8 +86,8 @@ router.put('/:id', (req, res) => {
     },
   })
   .then(dbProductData => {
-    if (!dbProductData[0]) {
-      res.status(404).json({ message: 'No Category found with this id' });
+    if (!dbProductData) {
+      res.status(404).json({ message: 'No Product found with this id' });
       return;
     }
     res.json(dbProductData);
@@ -106,7 +106,7 @@ router.delete('/:id', (req, res) => {
     }
   })
   .then(dbProductData => {
-    if (!dbProductData[0]) {
+    if (!dbProductData) {
       res.status(404).json({ message: 'No Category found with this id' });
       return;
     }
