@@ -1,0 +1,9 @@
+body {
+    background-image: url("background3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cart{
+    width: 50px;
+}
