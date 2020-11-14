@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { User } = require('../../models');
+const { User, Cart } = require('../../models');
 
 router.get('/', (req, res) => {
     // Access our User model and run .findAll() method)
@@ -11,9 +11,10 @@ router.get('/', (req, res) => {
         'password',
         'email'
       ],
-      incluide: [
-        [sequelize.literal('(SELECT COUNT(*) FROM cart WHERE user.id = cart.user_id)')]
-      ]
+      incluide: {
+        model: Cart,
+        attributes: ['id', 'user_id', 'product_id']
+      }
       })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -35,7 +36,7 @@ router.get('/:id', (req, res) => {
       'password'
     ],
     incluide: [
-      [sequelize.literal('(SELECT COUNT(*) FROM cart WHERE user.id = cart.user_id)')]
+      [sequelize.literal('(SELECT * FROM cart WHERE user.id = cart.user_id)')]
     ]
   })
       .then(dbUserData => {

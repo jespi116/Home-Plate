@@ -14,19 +14,22 @@ Cart.init(
       autoIncrement: true
     },
     user_id: {
-    type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
+      type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id'
       }
     },
     product_id: {
-        type: DataTypes.INTEGER,
-          references: {
-            model: 'product',
-            key: 'id'
-          }
+      type: DataTypes.INTEGER,
+        references: {
+          model: 'product',
+          key: 'id'
         }
+      },
+    quantity: {
+      type: DataTypes.INTEGER,
+    }
   },
   {
     sequelize,
