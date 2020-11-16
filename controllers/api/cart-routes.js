@@ -1,7 +1,7 @@
 // uses "/api/mycart" endpoint
 
 const router = require('express').Router();
-const { User, Category, Product, Cart } = require('../../models');
+const { Cart } = require('../../models');
 
 router.post('/', (req, res) => {
     //add product to cart

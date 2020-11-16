@@ -2,7 +2,7 @@
 
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { User, Cart } = require('../../models');
+const { User } = require('../../models');
 
 router.get('/', (req, res) => {
     // Access our User model and run .findAll() method)
