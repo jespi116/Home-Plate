@@ -1,3 +1,5 @@
+// uses "/api/users" endpoint
+
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { User, Cart } = require('../../models');
@@ -10,11 +12,7 @@ router.get('/', (req, res) => {
         'username',
         'password',
         'email'
-      ],
-      incluide: {
-        model: Cart,
-        attributes: ['id', 'user_id', 'product_id']
-      }
+      ]
       })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -25,7 +23,8 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   User.findOne({
-    
+    //find one user based on id
+
     where: {
       id: req.params.id
     },
@@ -34,9 +33,6 @@ router.get('/:id', (req, res) => {
       'username',
       'email',
       'password'
-    ],
-    incluide: [
-      [sequelize.literal('(SELECT * FROM cart WHERE user.id = cart.user_id)')]
     ]
   })
       .then(dbUserData => {
