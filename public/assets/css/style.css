@@ -1,9 +1,16 @@
-body {
+.masthead {
     background-image: url("../images/background3.jpg");
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-position: center center;
     background-size: cover;
+}
+.navbar {
+  background-image: url("../images/background3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 }
 
 .cart{
