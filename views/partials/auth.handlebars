@@ -1,0 +1,55 @@
+<div class="col mb-10" >
+            <div class="card bg-transparent" >
+                <div class="card-body bg-transparent border-1">
+                    <h5 class="card-title text-white">{{key}}</h5>
+                </div>
+                <ul class="list-group list-group-flush text text-light">
+                    <form class="{{text}}-form">
+                        <li class="list-group-item bg-secondary">                       
+                            <div>
+                                <label for="user">Email</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item bg-secondary">
+                            <div>
+                                <input class="w-100" type="text" id="{{text}}-user" />
+                            </div>
+                        </li>
+                         {{#unless action}}
+                            <li class="list-group-item bg-secondary">
+                            <div>
+                                <label for="username">Username</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item bg-secondary">
+                            <div>
+                                <input  class="w-100" type="text" id="{{text}}-username" />
+                            </div>
+                        </li>
+                        {{/unless}}
+                        <li class="list-group-item bg-secondary">
+                            <div>
+                                <label for="password">password:</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item bg-secondary">
+                            <div>
+                                <input  class="w-100" type="password" id="{{text}}-password" />
+                            </div>
+                        </li>
+                        <li class="list-group-item bg-secondary">
+                            <div>
+                                <button class="btn btn-primary" type="submit">{{key}}</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item bg-secondary"></li>
+                            {{#if action}}                        
+                                <a class="text-decoration-none" href="/signup">Instead Sign up</a> 
+                            {{else}}
+                                <a class="text-decoration-none" href="/login">Instead Login</a>
+                            {{/if}}
+                        </li>                            
+                    </form>
+                </ul>
+            </div>
+        </div>
