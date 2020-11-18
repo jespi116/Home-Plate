@@ -1,0 +1,30 @@
+<section class="w-75 mx-auto">
+    <h1>My Account</h1> 
+    <h6 class="text-center">Checkout and update your account details whenever you'd like. This information will be used as your contact info and will help streamline your checkout process!</h4>
+    <form id="account-form" class="card">
+        <h5 class="p-3 bold text-capitalize font-weight-bold">{{user.username}}'s user info</h5>
+        <div class="p-3">
+            <label>First Name</label>
+            <input id="first_name" type="text" value="{{user.first_name}}">
+        </div>
+        <div class="p-3">
+            <label>Last Name</label>
+            <input id="last_name" type="text" value="{{user.last_name}}">
+        </div>
+        <div class="p-3">
+            <label>Phone Number</label>
+            <input id="phone" type="text" value="{{user.phone}}">
+        </div>
+        <div class="p-3">
+            <label>Street Address</label>
+            <input id="address" type="text" value="{{user.address}}">
+        </div>
+        <div class="p-3">
+            <label>City, State, Zip Code</label>
+            <input id="city_state_zip" type="text" value="{{user.city_state_zip}}">
+        </div>
+        <button class="bg-success text-white">Save Changes</button>
+    </form>
+</section>
+
+<script src="/assets/js/account.js"></script>

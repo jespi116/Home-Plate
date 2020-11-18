@@ -6,7 +6,7 @@
     <title>Sports.com</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <!-- NavBar -->
@@ -31,14 +31,14 @@
               <a class="nav-link" href="#contact">Contact</a>
             </li>
             <li class="nav-item mx-3  mt-3">
-                 {{#if loggedIn}}
-                    <a class="nav-link" href="/myAccount">My Account</a>
-                {{else}}
-                    <a class="nav-link" href="#">My Account</a>
-                {{/if}}
+              {{#if loggedIn}}
+                    <a class="nav-link" href="/account/{{user_id}}">My Account</a>
+              {{else}}
+                    <a class="nav-link" href="/login">My Account</a>
+              {{/if}}
             </li>
             <li class="nav-item mx-1">
-                <a class="nav-link" href="/myCart"><img class="img-fluid cart" src="assets/images/cart.png" alt="My Cart"/></a>
+                <a class="nav-link" href="/myCart"><img class="img-fluid cart" src="/assets/images/cart.png" alt="My Cart"/></a>
             </li>
             <!--Login-->
             <li class="nav-item mx-3  mt-3">
