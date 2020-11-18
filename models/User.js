@@ -41,7 +41,22 @@ User.init(
         validate: {
           isEmail: true
         }
-      }
+      },
+    last_name: {
+      type: DataTypes.STRING
+    },
+    first_name: {
+      type: DataTypes.STRING
+    },
+    phone: {
+      type: DataTypes.NUMBER,
+    },
+    address: {
+      type: DataTypes.STRING
+    },
+    city_state_zip: {
+      type: DataTypes.STRING
+    }
   },
   {
     hooks: {

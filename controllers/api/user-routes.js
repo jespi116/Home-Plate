@@ -11,7 +11,12 @@ router.get('/', (req, res) => {
         'id',
         'username',
         'password',
-        'email'
+        'email',
+        'phone',
+        'last_name',
+        'first_name',
+        'address',
+        'city_state_zip'
       ]
       })
         .then(dbUserData => res.json(dbUserData))
@@ -32,7 +37,12 @@ router.get('/:id', (req, res) => {
       'id',
       'username',
       'email',
-      'password'
+      'password',
+      'phone',
+      'last_name',
+      'first_name',
+      'address',
+      'city_state_zip'
     ]
   })
       .then(dbUserData => {
