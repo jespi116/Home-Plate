@@ -26,7 +26,10 @@ User.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [4,16]
+      }
     },
     password: {
       type: DataTypes.STRING,
@@ -43,13 +46,13 @@ User.init(
         }
       },
     last_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(32)
     },
     first_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(32)
     },
     phone: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.STRING(10)
     },
     address: {
       type: DataTypes.STRING
