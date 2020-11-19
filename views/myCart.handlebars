@@ -12,22 +12,14 @@
 <main class="container my-5">
       <div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 justify-content-center">
         
-        {{#each carts.products }}
+        {{#each carts }}
+          {{#each products}}
         {{!-- Here I have to look for each product. I need to make the route --}}
-             <a class="text-decoration-none" href="/product/{{product_id}}">{{> my-cart cart }}</a>
+             <a class="text-decoration-none" href="/product/{{product_id}}">{{> my-cart }}</a>
+          {{/each}}
         {{/each}}
 
       </div>
 </main>                                      
-
-<div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 justify-content-center">
-    <div class="col-2 justify-content-center">
-        <a href="/newPost/{{user_id}}" class="btn btn-warning">+ Post</a>
-        {{!-- <button id="newPost" attr="{{user_id}}" type="button" class="btn btn-warning ">+ Post</button> --}}
-    </div>
-  </div>
-</div>
-
    {{!--  <script src="/assets/js/locate.js"></script> --}}
 
