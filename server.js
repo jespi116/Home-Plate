@@ -8,7 +8,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3010;
-//const hbs = exphbs.create({});
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({helpers});
 
 // Sets Handlebars as the default template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -25,6 +26,7 @@ const sess = {
 };
 
 app.use(session(sess));
+app.engine('handlebars', hbs.engine);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));

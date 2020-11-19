@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Product, Cart } = require('../models');
+const { User, Product, Cart, Category } = require('../models');
 
 router.get('/', (req, res) => {
          
@@ -122,6 +122,40 @@ router.get('/account/:id', (req, res) => {
     res.redirect('/')
   }
 })
+
+router.get('/categories/:category', (req, res) => {
+  Category.findOne({
+    where: {
+      category_name: req.params.category
+    },
+    attributes: [
+      'id',
+      'category_name'
+    ],
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name', 'description', 'price', 'stock']
+      }
+    ]
+  })
+  .then(dbCategoryData => {
+    if (!dbCategoryData) {
+      res.status(404).json({ message: 'No category found' });
+      return;
+    }
+    
+    const category = dbCategoryData.get({ plain: true });
+    
+    res.render('categories', { 
+      category
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+});
+});
 
   
 module.exports = router;
