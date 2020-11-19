@@ -17,9 +17,9 @@
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="portfolio-item">
                     {{#if loggedIn}}
-                    <a class="portfolio-link" href="/categories/sportsware/{{user_id}}">
+                    <a class="portfolio-link" href="/categories/sportsware/1">
                     {{else}}
-                    <a class="portfolio-link" href="/categories/sportsware">
+                    <a class="portfolio-link" href="/categories/sportsware/0">
                     {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -34,7 +34,11 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="/categories/hiking">
+                    {{#if loggedIn}}
+                    <a class="portfolio-link" href="/categories/hiking/1">
+                    {{else}}
+                    <a class="portfolio-link" href="/categories/hiking/0">
+                    {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
@@ -48,7 +52,11 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="/categories/baseball">
+                    {{#if loggedIn}}
+                    <a class="portfolio-link" href="/categories/baseball/1">
+                    {{else}}
+                    <a class="portfolio-link" href="/categories/baseball/0">
+                    {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
@@ -62,7 +70,11 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="/categories/soccer">
+                    {{#if loggedIn}}
+                    <a class="portfolio-link" href="/categories/soccer/1">
+                    {{else}}
+                    <a class="portfolio-link" href="/categories/soccer/0">
+                    {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
@@ -76,7 +88,11 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="/categories/basketball">
+                    {{#if loggedIn}}
+                    <a class="portfolio-link" href="/categories/basketball/1">
+                    {{else}}
+                    <a class="portfolio-link" href="/categories/basketball/0">
+                    {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
@@ -91,9 +107,9 @@
             <div class="col-lg-4 col-sm-6">
                 <div class="portfolio-item">
                     {{#if loggedIn}}
-                    <a class="portfolio-link" href="/categories/all/{{user_id}}">
+                    <a class="portfolio-link" href="/categories/all/1">
                     {{else}}
-                    <a class="portfolio-link" href="/categories/all">
+                    <a class="portfolio-link" href="/categories/all/0">
                     {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
