@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { User, Product, Cart } = require('../models');
 
 router.get('/', (req, res) => {
          
@@ -31,6 +31,56 @@ router.get('/signup', (req, res) => {
   res.render('signup', {key: 'SignUp', action: false, text:'signup'});
 
 });
+
+router.get('/myCart', (req, res) => {
+  // find one category by its `id` value
+  // be sure to include its associated Products
+  User.findAll({
+    where: {
+      id: req.session.user_id
+    },
+   /*  attributes: [
+      'id',
+      'user_id',
+      'product_id',
+      'quantity'
+    ], */
+    include: [
+      {
+        model: Cart
+       // attributes: ['id', 'product_name', 'description', 'price', 'stock']
+      },
+      {
+        model: Product
+       // attributes: ['id', 'product_name', 'description', 'price', 'stock']
+      }
+    ]
+  })
+  .then(dbCartData => {
+    if (!dbCartData) {
+      res.status(404).json({ message: 'No Product found with this id' });
+      return;
+    }
+    // serialize the data
+  const carts = dbCartData.map(cart => cart.get({ plain: true }));
+  //const posts = dbPostData.map(post => post.get({ plain: true }));
+
+  console.log( JSON.stringify(carts.products));
+  
+  // pass data to template
+  res.render('myCart', {
+      carts,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id,
+      username: req.session.username
+    });
+})
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 
 router.get('/account/:id', (req, res) => {
   if (req.session.loggedIn) {
@@ -69,7 +119,7 @@ router.get('/account/:id', (req, res) => {
   });
     return;
   } else {
-    res.redirect('/login')
+    res.redirect('/')
   }
 })
 

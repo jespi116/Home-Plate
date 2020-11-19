@@ -14,6 +14,23 @@ Category.hasMany(Product, {
   foreignKey: 'category_id'
 });
 
+Cart.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Cart, {
+  foreignKey: 'user_id'
+});
+/* 
+Cart.hasMany(Product, {
+  foreignKey: 'product_id'
+});
+
+Product.belongsTo(Cart, {
+  foreignKey: 'product_id'
+}); */
+
+
 // Products belongToMany User (through Cart)
 Product.belongsToMany(User, {
   through: Cart,
@@ -21,7 +38,7 @@ Product.belongsToMany(User, {
   otherKey: 'user_id'
 });
 
-// Tags belongToMany Products (through ProductTag)
+ // Tags belongToMany Products (through ProductTag)
 User.belongsToMany(Product, {       //Corrected the associations between User and products
   through: Cart,
   foreignKey: 'user_id'
@@ -33,3 +50,4 @@ module.exports = {
   Cart,
   User,
 };
+ 
