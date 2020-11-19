@@ -1,19 +1,25 @@
-
+{{#if category}}
 <div class="w-75 mx-auto">
     <h1 class="text-uppercase p-5 font-weight-bold">{{format_category category.category_name}}</h1>
     <div class="card">
         {{#each category.products}}
-        <div class="p-3 m-3 border d-flex justify-content-between align-items-center">
-            <div>{{product_name}}</div>
-            <div>${{price}}</div>
-            <div>{{format_stock stock}}</div>
-            <div>{{description}}</div>
-            <div>
-                <input id="quant" type="number" class="quant">
-                <button class="btn btn-primary">Add to Cart</button>
-            </div>
-        </div>
+        
+        {{>products this}}
         
         {{/each}}
     </div>
 </div>
+{{else}}
+<div class="w-75 mx-auto">
+    <h1 class="text-uppercase p-5 font-weight-bold">ALL CATEGORIES</h1>
+    <div class="card">
+        {{#each products}}
+        
+        {{>products this}}
+        
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+
+<script src="/assets/js/categories.js"></script>

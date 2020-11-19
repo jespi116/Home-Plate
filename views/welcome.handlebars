@@ -16,7 +16,11 @@
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="portfolio-item">
+                    {{#if loggedIn}}
+                    <a class="portfolio-link" href="/categories/sportsware/{{user_id}}">
+                    {{else}}
                     <a class="portfolio-link" href="/categories/sportsware">
+                    {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
@@ -86,7 +90,11 @@
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="portfolio-item">
+                    {{#if loggedIn}}
+                    <a class="portfolio-link" href="/categories/all/{{user_id}}">
+                    {{else}}
                     <a class="portfolio-link" href="/categories/all">
+                    {{/if}}
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
