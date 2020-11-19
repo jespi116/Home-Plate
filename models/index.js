@@ -14,11 +14,10 @@ Category.hasMany(Product, {
   foreignKey: 'category_id'
 });
 
-// Products belongToMany User (through Cart)
+ // Products belongToMany User (through Cart)
 Product.belongsToMany(User, {
   through: Cart,
-  foreignKey: 'product_id', 
-  otherKey: 'user_id'
+  foreignKey: 'product_id'
 });
 
 // Tags belongToMany Products (through ProductTag)

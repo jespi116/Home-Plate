@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports.com</title>
+    <title>Sport eCommerce</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="assets/css/style.css">
@@ -22,13 +22,13 @@
               <a class="nav-link mx-3 mt-3" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item mx-3  mt-3">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item mx-3  mt-3">
-              <a class="nav-link" href="#portfolio">Categories</a>
+              <a class="nav-link" href="#">Categories</a>
             </li>
             <li class="nav-item mx-3  mt-3">
-              <a class="nav-link" href="#contact">Contact</a>
+              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item mx-3  mt-3">
                  {{#if loggedIn}}
@@ -38,7 +38,11 @@
                 {{/if}}
             </li>
             <li class="nav-item mx-1">
+                 {{#if loggedIn}}
                 <a class="nav-link" href="/myCart"><img class="img-fluid cart" src="assets/images/cart.png" alt="My Cart"/></a>
+                {{else}}
+                <a class="nav-link" href="#"><img class="img-fluid cart" src="assets/images/cart.png" alt="My Cart"/></a>
+                {{/if}}
             </li>
             <!--Login-->
             <li class="nav-item mx-3  mt-3">

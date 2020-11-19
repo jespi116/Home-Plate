@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     //add product to cart
     Cart.create({
         //must be logged in to find user id
-            user_id: req.session.user_id,
+            user_id: req.body.user_id,
             product_id: req.body.product_id,
             quantity: req.body.quantity
     })
@@ -45,7 +45,7 @@ router.delete('/:id', (req, res) => {
     Cart.destroy({
         where: {
             //must be logged in to find user id
-            user_id: req.session.user_id,
+            user_id: req.params.id,
             id: req.params.id
         }
     })
