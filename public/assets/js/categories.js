@@ -1,15 +1,20 @@
-async function addFormHandler(event) {
-    event.preventDefault();
+async function addFormHandler(product_id, quantity) {
+    //event.preventDefault();
 
-    const user_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
-    let quant = document.querySelector('#quant').value;
-    const product_id = document.querySelector('#pid').textContent.split(':')[1];
+    //const user_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
+   const user_id = document.querySelector("#user").getAttribute("attr");
+   //let quant = document.querySelector('#quant').value;
+    /*const product_id = document.querySelector('#pid').textContent.split(':')[1]; */
 
+    alert("User ID: "+ user_id);
+    alert("Product ID: "+ product_id);
+    alert("Quantity: "+ quantity)
     if(!quant){
         quant = 1;
     }
-
-    console.log(user_id, quant, product_id)
+    console.log("\n====================================\n");
+    console.log(user_id, quant, product_id);
+    console.log("\n====================================\n");
 
     if(user_id === '0'){
         document.location.replace('/login');
@@ -19,9 +24,9 @@ async function addFormHandler(event) {
         const response = await fetch(`/api/mycart`, {
             method: 'post',
             body: JSON.stringify({
-              
-              product_id: product_id,
-              quantity: quant
+              user_id,
+              product_id,
+              quantity           
             }),
            headers: { 'Content-Type': 'application/json' }
           });
@@ -37,4 +42,4 @@ async function addFormHandler(event) {
     
 }
 
-document.querySelector('.add-form').addEventListener('submit', addFormHandler);
+//document.querySelector('.add-form').addEventListener('submit', addFormHandler);
