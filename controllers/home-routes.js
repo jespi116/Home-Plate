@@ -135,7 +135,9 @@ router.get('/categories/all', (req, res) => {
     const products = dbProductData.map(product => product.get({ plain: true }));
 console.log(products)
     res.render('categories', {
-      products
+      products,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id
     })
   })
   .catch(err => {
@@ -156,7 +158,9 @@ router.get('/categories/all/:id', (req, res) => {
     const products = dbProductData.map(product => product.get({ plain: true }));
 console.log(products)
     res.render('categories', {
-      products
+      products,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id
     })
   })
   .catch(err => {
@@ -190,7 +194,9 @@ router.get('/categories/:category', (req, res) => {
     const category = dbCategoryData.get({ plain: true });
     
     res.render('categories', { 
-      category
+      category,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id
     });
   })
   .catch(err => {
@@ -224,7 +230,9 @@ router.get('/categories/:category/:id', (req, res) => {
     const category = dbCategoryData.get({ plain: true });
     
     res.render('categories', { 
-      category
+      category,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id
     });
   })
   .catch(err => {

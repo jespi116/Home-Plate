@@ -177,4 +177,10 @@ header.masthead .masthead-subheading {
   .portfolio-modal .close-modal:hover {
     opacity: 0.3;
   }
+
+  .image-products {
+    width: 55px;
+    margin: 0px;
+    padding: 0px;
+  }
   

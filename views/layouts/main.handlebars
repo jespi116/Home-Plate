@@ -17,7 +17,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#">Our brand</a>
+          <a class="navbar-brand" href="/">Home-Plate</a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
               <a class="nav-link mx-3 mt-3" href="/">Home <span class="sr-only">(current)</span></a>
@@ -39,7 +39,11 @@
               {{/if}}
             </li>
             <li class="nav-item mx-1">
-                <a class="nav-link" href="/myCart"><img class="img-fluid cart" src="/assets/images/cart.png" alt="My Cart"/></a>
+              {{#if loggedIn}}
+                  <a class="nav-link" href="/myCart"><img class="img-fluid cart" src="/assets/images/cart.png" alt="My Cart"/></a>
+              {{else}}
+                  <a class="nav-link" href="/login"><img class="img-fluid cart" src="/assets/images/cart.png" alt="My Cart"/></a>
+              {{/if}}
             </li>
             <!--Login-->
             <li class="nav-item mx-3  mt-3">
@@ -92,7 +96,7 @@
       </div>
     </footer>
     
-  
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

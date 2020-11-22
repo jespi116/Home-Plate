@@ -1,25 +1,38 @@
-
+ {{#if loggedIn}}
 {{!-- Welcome to the user Dashboard in session  --}}
 <div class="container my-5">
   <div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 justify-content-center">
-    <div class="col-12 col-md-12 col-sm-12 mb-4 bg-success text-white">
-      <h3>Your Cart</h3>
-      <h5 class="small-text">User: {{username}}</h3>
+    <div class="col-12 col-md-12 col-sm-12 mb-4">
+      <h3  class="small-text text-uppercase font-weight-bold">Shopping Cart</h3>
+      <h5 class="small-text text-uppercase font-weight-bold">User: {{username}}</h3>
     </div>
   </div>
 </div>
 
-<main class="container my-5">
-      <div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 justify-content-center">
-        
-        {{#each carts }}
-          {{#each products}}
-        {{!-- Here I have to look for each product. I need to make the route --}}
-             <a class="text-decoration-none" href="/product/{{product_id}}">{{> my-cart }}</a>
-          {{/each}}
-        {{/each}}
+<main class="container my-3"> 
+      <div class="row {{!-- row-cols-1 row-cols-md-1 row-cols-sm-1 --}}justify-content-between w-85 align-items-center">
+       
+          {{!-- <h1 class="text-uppercase p-5 font-weight-bold">ALL CATEGORIES</h1> --}}
+           
+              {{#each carts }}
 
+            <div class="col-8 col-sm-8 my-1">
+              {{#each products }}
+                  {{> my-cart }}
+                {{/each}}
+            </div>
+                
+             <div class="col-4 col-sm-4 my-1">
+               {{#each carts }}
+                  {{> update-cart }}
+                {{/each}}
+             </div>
+                
+
+              {{/each}}
       </div>
-</main>                                      
-   {{!--  <script src="/assets/js/locate.js"></script> --}}
+</main>                                  
+    <script src="/assets/js/updateCart.js"></script>
+
+{{/if}}
 

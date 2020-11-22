@@ -1,25 +1,17 @@
-<div class="col mb-4" >
-    <div class="card" >
-        <div class="card-body bg-success">
-            <h5 class="card-title text-danger">{{product_name}}</h5>
-            <p class="card-text text-sm text-danger">
-                Description: {{description}}
-            </p>
-        </div>                        
-        <ul class="list-group list-group-flush text text-light">
-            <li class="list-group-item bg-secondary">in Stock. {{stock}}</li>
-        </ul>
-         <ul class="list-group list-group-flush text text-light">
-            <li class="list-group-item bg-secondary">Prices.  ${{price}}</li>
-        </ul>
+<div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 border-0  w-100 h-100">
+    <div class="card ">
+        <div class="p-3 m-3 d-flex justify-content-between align-items-center text-dark">
+            <div>
+                <a class="text-decoration-none" href="/product/{{id}}">
+                    <img class="image-products" src="/assets/images/products/{{id}}.JPG" alt="{{id}}"/>
+                </a>
+            </div>
+            <div><a class="text-decoration-none" href="/product/{{id}}">{{product_name}}</a></div>
+            <div>${{price}}</div>
+            <div>In Stock: {{ stock}}</div>
+            <div>{{description}}</div>
+        </div>
     </div>
 </div>
 
-<div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 justify-content-center">
-    <div class="col-2 justify-content-center">
-        <a href="/delete/{{user_id}}" class="btn btn-warning">Remove from Cart</a>
-        {{!-- <button id="newPost" attr="{{user_id}}" type="button" class="btn btn-warning ">+ Post</button> --}}
-    </div>
-  </div>
-</div>
+            

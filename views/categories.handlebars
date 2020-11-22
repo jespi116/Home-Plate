@@ -12,12 +12,19 @@
 {{else}}
 <div class="w-75 mx-auto">
     <h1 class="text-uppercase p-5 font-weight-bold">ALL CATEGORIES</h1>
-    <div class="card">
+    <div id="user" class="card" attr={{user_id}}>
+        
         {{#each products}}
-        
-        {{>products this}}
-        
+        <div class="p-3 m-3 border d-flex justify-content-between align-items-center add-form">
+                {{>products this}}
+            <div>                
+                <input id="quant" type="number" class="quant" value="1" onclick="addFormHandler({{id}}, this.value)">
+                <label>&nbsp; Add to Cart</label>
+                {{!-- <button id="add" class="btn btn-primary">Add to Cart</button> --}}
+            </div> 
+        </div>  
         {{/each}}
+
     </div>
 </div>
 {{/if}}
