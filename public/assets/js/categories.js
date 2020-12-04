@@ -10,15 +10,14 @@ async function addFormHandler(product_id, $this) {
     if(!quant){
         quant = 1;
     }
-    console.log("\n====================================\n");
-    console.log(user_id, quant, product_id);
-    console.log("\n====================================\n");
 
     if(!user_id){
         document.location.replace('/login');
     }
     else{
-        
+
+      if(!(await val).valueOf()){
+
         const response = await fetch(`/api/mycart`, {
             method: 'post',
             body: JSON.stringify({
@@ -29,15 +28,12 @@ async function addFormHandler(product_id, $this) {
            headers: { 'Content-Type': 'application/json' }
           });
   
-          console.log(response)
-  
           if (response.ok) {
             document.location.replace('/myCart');
           } else {
             alert(response.statusText);
           }
+        }
     }
     
 }
-
-//document.querySelector('.add-form').addEventListener('submit', addFormHandler);
