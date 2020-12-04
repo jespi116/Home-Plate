@@ -1,7 +1,7 @@
 <div class="col mb-10" >
-            <div class="card bg-transparent" >
+            <div class="card bg-secondary text-white" >
                 <div class="card-body bg-transparent border-1">
-                    <h5 class="card-title text-dark">{{key}}</h5>
+                    <h5 class="card-title">{{key}}</h5>
                 </div>
                 <ul class="list-group list-group-flush text text-light">
                     <form class="{{text}}-form">
@@ -42,11 +42,11 @@
                                 <button class="btn btn-primary" type="submit">{{key}}</button>
                             </div>
                         </li>
-                        <li class="list-group-item bg-secondary"></li>
+                        <li class="list-group-item bg-secondary">
                             {{#if action}}                        
-                                <a class="text-decoration-none" href="/signup">Instead Sign up</a> 
+                                <a class="text-white p-1" href="/signup">Don't have an account yet? Sign up here!</a> 
                             {{else}}
-                                <a class="text-decoration-none" href="/login">Instead Login</a>
+                                <a class="text-white p-1" href="/login">Already have an account? Login</a>
                             {{/if}}
                         </li>                            
                     </form>

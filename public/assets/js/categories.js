@@ -1,14 +1,12 @@
-async function addFormHandler(product_id, quantity) {
+async function addFormHandler(product_id, $this) {
     //event.preventDefault();
 
-    //const user_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
+    
    const user_id = document.querySelector("#user").getAttribute("attr");
-   //let quant = document.querySelector('#quant').value;
-    /*const product_id = document.querySelector('#pid').textContent.split(':')[1]; */
+   let quant = $this.previousElementSibling.value;
+   
 
-    alert("User ID: "+ user_id);
-    alert("Product ID: "+ product_id);
-    alert("Quantity: "+ quantity)
+    
     if(!quant){
         quant = 1;
     }
@@ -16,7 +14,7 @@ async function addFormHandler(product_id, quantity) {
     console.log(user_id, quant, product_id);
     console.log("\n====================================\n");
 
-    if(user_id === '0'){
+    if(!user_id){
         document.location.replace('/login');
     }
     else{
@@ -26,7 +24,7 @@ async function addFormHandler(product_id, quantity) {
             body: JSON.stringify({
               user_id,
               product_id,
-              quantity           
+              quantity: quant       
             }),
            headers: { 'Content-Type': 'application/json' }
           });
