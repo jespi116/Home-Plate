@@ -1,5 +1,5 @@
 async function addFormHandler(product_id, $this) {
-  //event.preventDefault();
+
 
   
  const user_id = document.querySelector("#user").getAttribute("attr");
@@ -15,7 +15,7 @@ async function addFormHandler(product_id, $this) {
   console.log("\n====================================\n");
 
   if(!user_id){
-      document.location.replace('/login');
+    document.location.replace("/login");
   }
   else{
       
