@@ -11,7 +11,7 @@ In these hard times where we must be socially distant in our communities it is m
 
 This was the inspiration behind HomePlate.com, an atheletics goodse-commerce website where people who are trying to stay active, while also staying safe and following social distancing guidelines, can get the equipment they need shipped directly to their homes with no direct contact!
 
-Users can create a profile, add products to their cart, edit the quantity of each item or reove them from the cart, and checkout! (This is merely a demo website and not meant for the purposes of actual monetary exchanges, the checkout feature will be non-functional.)
+Users can create a profile, add products to their cart, and edit the quantity of each item or reove them from the cart! (This is merely a demo website and not meant for the purposes of actual monetary exchanges.)
 <br><br>
 
 
