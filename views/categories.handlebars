@@ -2,36 +2,58 @@
 <div class="w-75 mx-auto">
     <h1 class="text-uppercase p-5 font-weight-bold">{{category.category_name}} CATEGORY</h1>
     <div id="user" class="card d-flex row flex-row col-12 justify-content-around" attr={{user_id}}>
-        {{#each category.products}}
-        <form class="p-3 m-4 border d-flex flex-column col-3 justify-content-between align-items-center text-center add-form">
-                {{>products this}}
-            <div>                
-                quantity: 
-                <input id="quant" type="number" min="1" class="quant">
-                <button class=" btn btn-primary d-block mt-2" onclick="addFormHandler({{id}}, this)"> Add to Cart</button>
-                {{!-- <button id="add" class="btn btn-primary">Add to Cart</button> --}}
-            </div> 
-        </form>  
-        {{/each}}
+        {{#if loggedIn}}
+            {{#each category.products}}
+            <form class="p-3 m-4 border d-flex flex-column col-3 justify-content-between align-items-center text-center add-form">
+                    {{>products this}}
+                <div>                
+                    quantity: 
+                    <input id="quant" type="number" min="1" class="quant">                
+                    <button class="btn btn-primary d-block mt-2" onclick="addFormHandler({{id}}, this)">Add to Cart</button>
+                </div> 
+            </form>  
+            {{/each}}
+        {{else}}
+            {{#each category.products}}
+            <form class="p-3 m-4 border d-flex flex-column col-3 justify-content-between align-items-center text-center add-form">
+                    {{>products this}}
+                <div>                
+                    quantity: 
+                    <input id="quant" type="number" min="1" class="quant">                
+                    <a class="btn btn-primary d-block mt-2" href="/login" role="button">Add to Cart</a>
+                </div> 
+            </form>  
+            {{/each}}
+        {{/if}}
     </div>
 </div>
 {{else}}
 <div class="w-75 mx-auto">
     <h1 class="text-uppercase p-5 font-weight-bold">ALL CATEGORIES</h1>
     <div id="user" class="card d-flex row flex-row col-12 justify-content-around" attr={{user_id}}>
-        
-        {{#each products}}
-        <form class="p-3 m-4 border d-flex flex-column col-3 justify-content-between align-items-center text-center add-form">
-                {{>products this}}
-            <div>                
-                quantity: 
-                <input id="quant" type="number" min="1" class="quant">
-                <button class=" btn btn-primary d-block mt-2" onclick="addFormHandler({{id}}, this)"> Add to Cart</button>
-                {{!-- <button id="add" class="btn btn-primary">Add to Cart</button> --}}
-            </div> 
-        </form>  
-        {{/each}}
-
+        {{#if loggedIn}}
+            {{#each products}}
+            <form class="p-3 m-4 border d-flex flex-column col-3 justify-content-between align-items-center text-center add-form">
+                    {{>products this}}
+                <div>                
+                    quantity: 
+                    <input id="quant" type="number" min="1" class="quant"/>
+                    <button class=" btn btn-primary d-block mt-2" onclick="addFormHandler({{id}}, this)">Add to Cart</button>
+                </div> 
+            </form>  
+            {{/each}}
+        {{else}}
+            {{#each products}}
+                <form class="p-3 m-4 border d-flex flex-column col-3 justify-content-between align-items-center text-center add-form">
+                        {{>products this}}
+                    <div>                
+                        quantity: 
+                        <input id="quant" type="number" min="1" class="quant"/>
+                        <a class="btn btn-primary d-block mt-2" href="/login" role="button">Add to Cart</a>
+                    </div> 
+                </form>  
+            {{/each}}
+        {{/if}}
     </div>
 </div>
 {{/if}}

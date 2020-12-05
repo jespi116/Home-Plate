@@ -34,25 +34,16 @@ router.get('/signup', (req, res) => {
 
 router.get('/myCart', (req, res) => {
   // find one category by its `id` value
-  // be sure to include its associated Products
   User.findAll({
     where: {
       id: req.session.user_id
     },
-   /*  attributes: [
-      'id',
-      'user_id',
-      'product_id',
-      'quantity'
-    ], */
     include: [
       {
         model: Cart
-       // attributes: ['id', 'product_name', 'description', 'price', 'stock']
       },
       {
         model: Product
-       // attributes: ['id', 'product_name', 'description', 'price', 'stock']
       }
     ]
   })
@@ -63,7 +54,6 @@ router.get('/myCart', (req, res) => {
     }
     // serialize the data
   const carts = dbCartData.map(cart => cart.get({ plain: true }));
-  //const posts = dbPostData.map(post => post.get({ plain: true }));
 
   console.log( JSON.stringify(carts.products));
   
@@ -133,7 +123,6 @@ router.get('/categories/all', (req, res) => {
   })
   .then(dbProductData => {
     const products = dbProductData.map(product => product.get({ plain: true }));
-console.log(products)
     res.render('categories', {
       products,
       loggedIn: req.session.loggedIn,
@@ -156,7 +145,6 @@ router.get('/categories/all/:id', (req, res) => {
   })
   .then(dbProductData => {
     const products = dbProductData.map(product => product.get({ plain: true }));
-console.log(products)
     res.render('categories', {
       products,
       loggedIn: req.session.loggedIn,

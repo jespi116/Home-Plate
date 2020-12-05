@@ -52,8 +52,6 @@ router.put('/:id', (req, res) => {
     //update quantity of product in cart
     Cart.update(req.body, {
         where: {
-            //must be logged in to find user id
-            //user_id: req.session.user_id,
             id: req.params.id
         }
     })
@@ -74,8 +72,6 @@ router.delete('/:id', (req, res) => {
     //delete product from cart
     Cart.destroy({
         where: {
-            //must be logged in to find user id
-            //user_id: req.session.user_id,
             id: req.params.id
         }
     })

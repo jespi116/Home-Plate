@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['id', 'category_name']   //changed the attribute, added id, I think we will use it in the future
+        attributes: ['id', 'category_name'] 
       }
     ]
   })

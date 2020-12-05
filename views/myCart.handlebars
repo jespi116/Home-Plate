@@ -10,25 +10,21 @@
 </div>
 
 <main class="container my-3"> 
-      <div class="row {{!-- row-cols-1 row-cols-md-1 row-cols-sm-1 --}}justify-content-between w-85 align-items-center">
-       
-          {{!-- <h1 class="text-uppercase p-5 font-weight-bold">ALL CATEGORIES</h1> --}}
-           
+      <div class="row {{!-- row-cols-1 row-cols-md-1 row-cols-sm-1 --}}justify-content-between w-85 align-items-center">          
               {{#each carts }}
 
-            <div class="col-8 col-sm-8 my-1">
-              {{#each products }}
-                  {{> my-cart }}
-                {{/each}}
-            </div>
+              <div class="col-8 col-sm-8 my-1">
+                {{#each products }}
+                    {{> my-cart }}
+                  {{/each}}
+              </div>
                 
-             <div class="col-4 col-sm-4 my-1">
-               {{#each carts }}
-                  {{> update-cart }}
-                {{/each}}
-             </div>
+              <div class="col-4 col-sm-4 my-1">
+                {{#each carts }}
+                    {{> update-cart }}
+                  {{/each}}
+              </div>
                 
-
               {{/each}}
       </div>
 </main>                                  
