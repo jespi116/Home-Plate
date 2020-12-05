@@ -43,7 +43,6 @@ Users can create a profile, add products to their cart, edit the quantity of eac
 
 * Rogers Ramirez [rogers0404](http://github.com/rogers0404)
 * Javier Espinosa [jespi116](http://github.com/jespi116)
-* Dixon Steadman [steadmandixon](http://github.com/steadmandixon)
 
 <br>
 
