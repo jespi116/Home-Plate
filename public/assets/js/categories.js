@@ -1,5 +1,5 @@
 async function addFormHandler(product_id, $this) {
-  //event.preventDefault();
+
 
  const user_id = document.querySelector("#user").getAttribute("attr");
  let quant = $this.previousElementSibling.value;
